@@ -1,6 +1,31 @@
+var timerEl = document.getElementById('countdown');
+var mainEl = document.getElementById('main');
+var startBtn = document.getElementById('start');
+
+var message = 'You are out of time';
+// Timer that counts down from 60
+function countdown() {
+    var timeLeft = 60;
+
+//Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+  var timeInterval = setInterval(function() {
+
+    timerEl.textContent= "Time: " + timeLeft //displays the time left
 
 
+    if (timeLeft === 0) { //stops when the code hits 0 and display message
+      clearInterval(timeInterval); //clears and stops the clock
+      timerEl.textContent = "" //clears the 0 seconds left our
+      displayMessage(); //displays the message
 
+    }
+    
+    timeLeft-- //subtacts 1 second goes to 0 since it is under the if
+    
+  } ,1000);
+ } //1000 represents how much is subtracted
+
+  startBtn.onclick = countdown;
 
 
 
