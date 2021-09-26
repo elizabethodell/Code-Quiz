@@ -12,7 +12,7 @@ Below is a screen shot of the quiz:
 
 
 The link to the app deployed:
-
+https://elizabethodell.github.io/Code-Quiz/
 
 A link to the github repo:
 https://github.com/elizabethodell/Code-Quiz.git
