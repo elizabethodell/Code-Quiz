@@ -22,7 +22,7 @@ const quizQuestions = [
     3: "alerts",
     4: "numbers"
   },
-    correctAnswer: "1"
+    correctAnswer: "3"
   },
 
   {
@@ -33,7 +33,7 @@ const quizQuestions = [
     3: "parameters",
     4: "square brackets"
   },
-    correctAnswer: "1"
+    correctAnswer: "2"
   },
 
   {
@@ -44,7 +44,7 @@ const quizQuestions = [
     3: "booleans",
     4: "all of the above"
   },
-    correctAnswer: "1"
+    correctAnswer: "4"
   },
 
   {
@@ -55,7 +55,7 @@ const quizQuestions = [
     3: "quotes", 
     4: "parenthesis"
   },
-    correctAnswer: "1"
+    correctAnswer: "3"
   },
 
   {
@@ -66,7 +66,7 @@ const quizQuestions = [
     3: "for loops",
     4: "console log"
   },
-    correctAnswer: "1"
+    correctAnswer: "4"
   }
 
 ];

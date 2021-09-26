@@ -1,9 +1,17 @@
+header h2 {
+    float: right;
+}
 
-.welcome-button {
-color: #fce138;
-background-color: #024e76;
-border: none;
-padding: 10px 20px;
-font-size: 16px;
-border-radius: 10px;
+.container button {
+    background-color: purple;
+    color: white;
+    border: 3px;
+}
+
+#welcome {
+    text-align: center;
+}
+
+.highscore {
+    padding: 50px 350px 50px 350px;
 }
