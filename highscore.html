@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>High Score</title>
+  </head>
+
+  <body>
+    <h1>All Done!</h1>
+
+    <h2>Your final score is</h2>
+    <!-- Input Form -->
+    <form>
+      <span id="todo-item">Enter your initials: <input id="high-score" type="text"/><input
+          id="add-high-score"
+          value="Add Item"
+          type="submit"
+      /></span>
+    </form>
+
+    <hr />
+
+    <!-- High Scorers list-->
+    <div id="highscorers"></div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Script -->
+
+    <script type="text/javascript">
+      // Declares a 'list' variable that holds the parsed high-score items retrieved from 'localStorage'
+      // If there is nothing in 'localStorage', sets the 'list' to an empty array
+      var list = JSON.parse(localStorage.getItem('todolist')) || [];
+
+      // Renders our highscorers to the page
+      function renderTodos(list) {
+        // Empties out the html
+        $('#highscorers').empty();
+
+        // Iterates over the 'list'
+        for (var i = 0; i < list.length; i++) {
+          // Creates a new variable 'toDoItem' that will hold a "<p>" tag
+          // Sets the `list` item's value as text of this <p> element
+          var toDoItem = $('<p>');
+          toDoItem.text(list[i]);
+
+          // Creates a button `toDoClose` with an attribute called `data-to-do` and a unique `id`
+          var toDoClose = $('<button>');
+          toDoClose.attr('data-to-do', i);
+
+          // Gives the button a class called 'checkbox'
+          toDoClose.addClass('checkbox');
+
+          // Adds a checkmark symbol as its text value
+          toDoClose.text('✓');
+
+          // Adds the button to the `toDoItem`
+          toDoItem = toDoItem.prepend(toDoClose);
+
+          // Adds 'toDoItem' to the high-score List div
+          $('#highscorers').append(toDoItem);
+        }
+      }
+
+      $('#add-high-score').on('click', function(event) {
+        event.preventDefault();
+
+        // Get the high-score "value" from the textbox and store it as a variable using `.val()` and `.trim()`
+        // YOUR CODE HERE
+        //
+        var toDoTask = $("#high-score")
+        .val()
+        .trim();
+
+        // Add the new high-score to our local 'list' variable
+        // YOUR CODE HERE
+        //
+        list.push(toDoTask);
+
+        // Update the highscorers on the page
+        // YOUR CODE HERE
+        //
+        renderTodos(list);
+
+
+        // Save the highscorers into localStorage
+        // We need to use JSON.stringify to turn the list from an array into a string
+        // YOUR CODE HERE
+        //
+
+        localStorage.setItem('todolist', JSON.stringify(list));
+
+
+        // Clear the textbox when done using `.val()`
+        // YOUR CODE HERE
+        //
+        $('#high-score').val('');
+      });
+
+      $(document).on('click', '.checkbox', function() {
+        // Get the `id` of the button from its data attribute and hold in a variable called 'toDoNumber'
+        // YOUR CODE HERE
+        //
+        var toDoNumber = $(this).attr('data-to-do');
+
+        // Delete the to-do with that `id` from our local `list` using `.splice()`
+        // YOUR CODE HERE
+        //
+        list.splice(toDoNumber, 1);
+
+        // Update the highscorers on the page
+        // YOUR CODE HERE
+        //
+        renderTodos(list);
+
+
+        // Save the highscorers into localStorage
+        // We need to use JSON.stringify to turn the list from an array into a string
+        // YOUR CODE HERE
+        //
+        localStorage.setItem('todolist', JSON.stringify(list));
+      });
+
+      // Renders our highscorers on page load
+      renderTodos(list);
+    </script>
+  </body>
+</html>
